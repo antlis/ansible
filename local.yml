@@ -8,34 +8,5 @@
         - node
         - zsh
   tasks:
-    - name: Install zsh
-      apt: name=zsh
-      tags:
-        - zsh
-    - name: Change shell
-      shell: chsh -s `which zsh`
-      tags:
-        - zsh
-    - name: Install ohmyzsh
-      shell: curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-      tags:
-        - zsh
-    # - name: Install the zsh plugin autosuggestions
-    #   ansible.builtin.git:
-    #     repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
-    #     dest: "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
-    - name: Install node
-      apt:
-        name: ['nodejs', 'npm']
-      tags:
-        - node
-    - name: Install n (same as nvm)
-      npm:
-        name: n
-        global: true
-      tags:
-        - node
-    - name: n 14
-      shell: n 14
-      tags:
-        - node
+    - include: tasks/zsh.yml
+    - include: tasks/node.yml
