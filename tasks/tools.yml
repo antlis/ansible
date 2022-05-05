@@ -1,7 +1,62 @@
+- name: kdenlive ppa (ppa:kdenlive/kdenlive-stable)
+  become: true
+  apt_repository:
+    repo: ppa:kdenlive/kdenlive-stable
+    state: present
+    update_cache: True
+  tags:
+    - install
+    - tools
+
+- name: shutter ppa (ppa:linuxuprising/shutter)
+  become: true
+  apt_repository:
+    repo: ppa:linuxuprising/shutter
+    state: present
+    update_cache: True
+  tags:
+    - install
+    - tools
+
+- name: peek ppa (ppa:peek-developers/stable)
+  become: true
+  apt_repository:
+    repo: ppa:peek-developers/stable
+    state: present
+    update_cache: True
+  tags:
+    - install
+    - tools
+
+- name: redshift ppa (ppa:dobey/redshift-daily)
+  become: true
+  apt_repository:
+    repo: ppa:dobey/redshift-daily
+    state: present
+    update_cache: True
+  tags:
+    - install
+    - tools
+
 - name: Install packages
   become: true
   apt:
-    name: [ "tmux", "wireshark", "fzf", "kdenlive", "gimp", "xclip", "screenkey", "tldr", "ripgrep", "shutter" ]
+    name:
+      [
+        "redshift",
+        "asciinema",
+        "peek",
+        "tmux",
+        "wireshark",
+        "fzf",
+        "kdenlive",
+        "gimp",
+        "xclip",
+        "screenkey",
+        "tldr",
+        "ripgrep",
+        "shutter",
+      ]
   tags:
     - install
     - tools

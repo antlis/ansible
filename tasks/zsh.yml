@@ -2,14 +2,17 @@
   apt: name=zsh
   tags:
     - zsh
+
 - name: Change shell
   shell: chsh -s `which zsh`
   tags:
     - zsh
+
 - name: Install ohmyzsh
   shell: curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
   tags:
     - zsh
+
 # - name: Install the zsh plugin autosuggestions
 #   ansible.builtin.git:
 #     repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
