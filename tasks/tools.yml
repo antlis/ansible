@@ -41,8 +41,7 @@
 - name: Install packages
   become: true
   apt:
-    name:
-      [
+    name: [
         "gh",
         "surfraw",
         "redshift",
@@ -52,13 +51,14 @@
         "wireshark",
         "fzf",
         "kdenlive",
-        "krita",
+        "krita", # https://krita.org/en/
         "gimp",
         "xclip",
         "screenkey",
         "tldr",
-        "ripgrep",
-        "shutter",
+        "ripgrep", # https://github.com/BurntSushi/ripgrep
+        "shutter", # https://shutter-project.org/
+        "tidy", # http://www.html-tidy.org/
       ]
   tags:
     - install
