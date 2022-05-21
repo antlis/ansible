@@ -59,6 +59,7 @@
         "ripgrep", # https://github.com/BurntSushi/ripgrep
         "shutter", # https://shutter-project.org/
         "tidy", # http://www.html-tidy.org/
+        "fd-find", # https://github.com/sharkdp/fd
       ]
   tags:
     - install
