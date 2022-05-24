@@ -42,20 +42,20 @@
   become: true
   apt:
     name: [
-        "gh",
-        "surfraw",
-        "redshift",
-        "asciinema",
-        "peek",
-        "tmux",
-        "wireshark",
-        "fzf",
-        "kdenlive",
+        "gh", # https://cli.github.com/
+        "surfraw", # http://surfraw.org/
+        "redshift", # https://wiki.archlinux.org/title/Redshift
+        "asciinema", # https://asciinema.org/
+        "peek", # https://github.com/phw/peek
+        "tmux", # https://github.com/tmux/tmux
+        "wireshark", # https://www.wireshark.org/
+        "fzf", # https://github.com/junegunn/fzf
+        "kdenlive", # https://kdenlive.org/en/
         "krita", # https://krita.org/en/
-        "gimp",
-        "xclip",
-        "screenkey",
-        "tldr",
+        "gimp", # https://www.gimp.org/
+        "xclip", # https://github.com/astrand/xclip
+        "screenkey", # https://gitlab.com/screenkey/screenkey
+        "tldr", # https://github.com/tldr-pages/tldr
         "ripgrep", # https://github.com/BurntSushi/ripgrep
         "shutter", # https://shutter-project.org/
         "tidy", # http://www.html-tidy.org/
