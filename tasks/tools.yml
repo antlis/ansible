@@ -42,6 +42,7 @@
   become: true
   apt:
     name: [
+        "fd-find", # https://github.com/sharkdp/fd # ln -s $(which fdfind) ~/.local/bin/fd
         "gh", # https://cli.github.com/
         "surfraw", # http://surfraw.org/
         "redshift", # https://wiki.archlinux.org/title/Redshift
