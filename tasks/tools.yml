@@ -44,6 +44,7 @@
     name: [
         "mpv", # https://mpv.io/
         "httpie", # https://httpie.io/
+        "wget", # https://github.com/mirror/wget
         "fd-find", # https://github.com/sharkdp/fd # ln -s $(which fdfind) ~/.local/bin/fd
         "gh", # https://cli.github.com/
         "surfraw", # http://surfraw.org/
