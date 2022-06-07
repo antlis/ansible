@@ -38,6 +38,35 @@
     - install
     - tools
 
+- name: Clone dragon
+  ansible.builtin.git:
+    repo: 'https://github.com/mwh/dragon'
+    dest: "{{ lookup('env', 'HOME') }}/Downloads/dragon"
+- name: Build dragon
+  shell: "cd {{ lookup('env', 'HOME') }}/dragon && make PREFIX={{ lookup('env', 'HOME') }}/.local/bin"
+  tags:
+    - install
+    - dragon
+    - tools
+
+- name: required libraries for keynav
+  become: true
+  apt:
+    name: ["libcairo2-dev", "libxinerama-dev", "libxdo-dev"]
+  tags:
+    - keynav
+    - install
+- name: Clone keynav
+  ansible.builtin.git:
+    repo: 'https://github.com/jordansissel/keynav'
+    dest: "{{ lookup('env', 'HOME') }}/Downloads/keynav"
+- name: Build keynav
+  shell: "cd {{ lookup('env', 'HOME') }}/keynav && make install"
+  tags:
+    - install
+    - keynav
+    - tools
+
 - name: Install packages
   become: true
   apt:
