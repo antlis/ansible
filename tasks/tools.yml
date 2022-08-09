@@ -93,6 +93,7 @@
         "shutter", # https://shutter-project.org/
         "tidy", # http://www.html-tidy.org/
         "fd-find", # https://github.com/sharkdp/fd
+        "newsboat", # https://github.com/newsboat/newsboat
       ]
   tags:
     - install
