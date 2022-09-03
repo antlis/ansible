@@ -94,6 +94,7 @@
         "tidy", # http://www.html-tidy.org/
         "fd-find", # https://github.com/sharkdp/fd
         "newsboat", # https://github.com/newsboat/newsboat
+        "cobang", # https://github.com/hongquan/CoBang
       ]
   tags:
     - install
