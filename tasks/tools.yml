@@ -95,6 +95,7 @@
         "fd-find", # https://github.com/sharkdp/fd
         "newsboat", # https://github.com/newsboat/newsboat
         "cobang", # https://github.com/hongquan/CoBang
+        "htop", # https://github.com/htop-dev/htop
       ]
   tags:
     - install
