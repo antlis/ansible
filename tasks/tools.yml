@@ -96,6 +96,7 @@
         "newsboat", # https://github.com/newsboat/newsboat
         "cobang", # https://github.com/hongquan/CoBang
         "htop", # https://github.com/htop-dev/htop
+        "w3m", # https://github.com/acg/w3m
       ]
   tags:
     - install
