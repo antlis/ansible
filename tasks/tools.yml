@@ -90,7 +90,7 @@
         "screenkey", # https://gitlab.com/screenkey/screenkey
         "tldr", # https://github.com/tldr-pages/tldr
         "ripgrep", # https://github.com/BurntSushi/ripgrep
-        "shutter", # https://shutter-project.org/
+        # "shutter", # https://shutter-project.org/
         "tidy", # http://www.html-tidy.org/
         "fd-find", # https://github.com/sharkdp/fd
         "newsboat", # https://github.com/newsboat/newsboat
