@@ -8,16 +8,6 @@
     - install
     - tools
 
-- name: redshift ppa (ppa:dobey/redshift-daily)
-  become: true
-  apt_repository:
-    repo: ppa:dobey/redshift-daily
-    state: present
-    update_cache: True
-  tags:
-    - install
-    - tools
-
 - name: Clone dragon
   ansible.builtin.git:
     repo: 'https://github.com/mwh/dragon'
