@@ -8,16 +8,6 @@
     - install
     - tools
 
-- name: shutter ppa (ppa:linuxuprising/shutter)
-  become: true
-  apt_repository:
-    repo: ppa:linuxuprising/shutter
-    state: present
-    update_cache: True
-  tags:
-    - install
-    - tools
-
 - name: peek ppa (ppa:peek-developers/stable)
   become: true
   apt_repository:
