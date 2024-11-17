@@ -1,0 +1,36 @@
+- name: Clone GitHub repos
+  hosts: "{{ host | default('localhost') }}"
+  gather_facts: false
+
+  tasks:
+    - name: Clone dotfiles repo
+      git:
+        repo: "git@github.com:antlis/dotfiles.git"
+        dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
+        version: master
+        key_file: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+
+    - name: Clone zsh repo
+      git:
+        repo: "git@github.com:antlis/zsh-custom.git"
+        dest: "{{ lookup('env', 'HOME') }}/.config/zsh/"
+        version: master
+        key_file: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+
+    - name: Create a symlink for aliases
+      ansible.builtin.file:
+        src: "{{ lookup('env', 'HOME') }}/.config/zsh/aliases.zsh"
+        dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/aliases.zsh"
+        state: link
+
+    - name: Create a symlink for functions
+      ansible.builtin.file:
+        src: "{{ lookup('env', 'HOME') }}/.config/zsh/functions.zsh"
+        dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/functions.zsh"
+        state: link
+
+    - name: Source .zshrc
+      ansible.builtin.shell: |
+        zsh -c "source {{ lookup('env', 'HOME') }}/.zshrc"
+      args:
+        executable: /bin/zsh

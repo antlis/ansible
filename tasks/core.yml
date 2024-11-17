@@ -1,0 +1,76 @@
+---
+
+- name: Install package surfraw
+  community.general.pacman:
+    name: surfraw
+    state: present
+
+- name: Install package lsd
+  community.general.pacman:
+    name: lsd
+    state: present
+
+- name: Install package ripgrep
+  community.general.pacman:
+    name: ripgrep
+    state: present
+
+- name: Install package nvim
+  community.general.pacman:
+    name: neovim
+    state: present
+
+- name: Install package Obsidian
+  community.general.pacman:
+    name: obsidian
+    state: present
+
+- name: Install package tmux
+  community.general.pacman:
+    name: tmux
+    state: present
+
+- name: Install package cowsay
+  community.general.pacman:
+    name: cowsay
+    state: present
+
+- name: Install package yazi
+  community.general.pacman:
+    name: yazi
+    state: present
+
+- name: Install package pydf
+  community.general.pacman:
+    name: pydf
+    state: present
+
+- name: Install package iotop
+  community.general.pacman:
+    name: iotop
+    state: present
+
+- name: Install package syncthing
+  community.general.pacman:
+    name: syncthing
+    state: present
+
+- name: Install package peek
+  community.general.pacman:
+    name: peek
+    state: present
+
+- name: Install package xclip
+  community.general.pacman:
+    name: xclip
+    state: present
+
+- name: Install package ffmpegthumbnailer
+  community.general.pacman:
+    name: ffmpegthumbnailer
+    state: present
+
+- name: Install package telegram-desktop
+  community.general.pacman:
+    name: telegram-desktop
+    state: present

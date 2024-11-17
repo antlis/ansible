@@ -1,0 +1,13 @@
+---
+# - import_playbook: tasks/clone-repo.yml
+
+- hosts: "{{ host | default('localhost') }}"
+  gather_facts: false
+  become: true
+  vars:
+    install: true
+  tasks:
+    - include_tasks: tasks/core.yml
+    - include_tasks: tasks/oh-my-zsh.yml
+    - include_tasks: tasks/rvm.yml
+    - include_tasks: tasks/nvm.yml

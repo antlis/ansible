@@ -1,0 +1,40 @@
+- name: Download NVM installation script
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh
+    dest: /tmp/install_nvm.sh
+    mode: '0755'
+
+- name: Execute NVM installation script
+  ansible.builtin.shell: |
+    bash /tmp/install_nvm.sh
+  args:
+    executable: /bin/bash
+  become: yes
+  become_user: "{{ target_user }}"
+
+- name: Ensure NVM is loaded in .zshrc
+  ansible.builtin.lineinfile:
+    path: "/home/{{ target_user }}/.zshrc"
+    line: |
+      export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    state: present
+  become: yes
+  become_user: "{{ target_user }}"
+
+- name: Source .zshrc to load NVM immediately
+  ansible.builtin.shell: |
+    source /home/{{ target_user }}/.zshrc
+  args:
+    executable: /bin/zsh
+  become: yes
+  become_user: "{{ target_user }}"
+
+- name: Install default Node.js version
+  ansible.builtin.shell: |
+    export NVM_DIR="/home/{{ target_user }}/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    nvm install --lts
+  args:
+    executable: /bin/bash
+  become: yes
+  become_user: "{{ target_user }}"
