@@ -19,7 +19,7 @@
 - name: Set Zsh as the default shell for the target user
   ansible.builtin.user:
     name: "{{ target_user }}"
-    shell: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/bin/zsh"
+    shell: /usr/bin/zsh
   become: yes
   become_user: root
 
