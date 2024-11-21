@@ -5,6 +5,16 @@
     name: surfraw
     state: present
 
+- name: Install package lazygit
+  community.general.pacman:
+    name: lazygit
+    state: present
+
+- name: Install package firefx-developer-edition
+  community.general.pacman:
+    name: firefox-developer-edition
+    state: present
+
 - name: Install package lsd
   community.general.pacman:
     name: lsd
@@ -73,4 +83,9 @@
 - name: Install package telegram-desktop
   community.general.pacman:
     name: telegram-desktop
+    state: present
+
+- name: Install package transmission-cli
+  community.general.pacman:
+    name: transmission-cli
     state: present

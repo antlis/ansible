@@ -6,39 +6,38 @@
       - openssl
       - readline
       - zlib
-      - gnupg  # Use gnupg instead of gpg
+      - gnupg
     state: present
 
 - name: Import RVM GPG keys
   ansible.builtin.shell: |
-    gpg2 --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-    # Or if that fails, use the following commands:
-    curl -sSL https://rvm.io/mpapis.asc | sudo gpg2 --import -
-    curl -sSL https://rvm.io/pkuczynski.asc | sudo gpg2 --import -
+    gpg2 --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB || \
+    (curl -sSL https://rvm.io/mpapis.asc | gpg2 --import - && \
+    curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import -)
+  args:
+    creates: "/home/{{ target_user }}/.gnupg/pubring.kbx"  # Skip if GPG keys are already imported
   become: yes
   become_user: "{{ target_user }}"
-  args:
-    creates: "/home/{{ target_user }}/.rvm"  # Skip this step if RVM is already installed
 
 - name: Install RVM
   ansible.builtin.shell: |
-    \curl -sSL https://get.rvm.io | bash -s stable
+    curl -sSL https://get.rvm.io | bash -s stable
   args:
-    creates: "/home/{{ target_user }}/.rvm"
+    creates: "/home/{{ target_user }}/.rvm/bin/rvm"  # Skip if RVM is already installed
   become: yes
   become_user: "{{ target_user }}"
 
 - name: Install Ruby (optional)
   ansible.builtin.shell: |
-    source /home/{{ target_user }}/.rvm/scripts/rvm && rvm install ruby
+    timeout 300 bash -lc "rvm install ruby --autolibs=read-only"
   args:
     creates: "/home/{{ target_user }}/.rvm/rubies/ruby-*"  # Prevents reinstalling if Ruby is already installed
   become: yes
   become_user: "{{ target_user }}"
 
-- name: Set Ruby version (optional)
+- name: Set default Ruby version (optional)
   ansible.builtin.shell: |
-    source /home/{{ target_user }}/.rvm/scripts/rvm && rvm use ruby --default
+    bash -lc "rvm use ruby --default"
   become: yes
   become_user: "{{ target_user }}"
 
