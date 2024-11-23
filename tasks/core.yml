@@ -5,6 +5,11 @@
     name: surfraw
     state: present
 
+- name: Install package lolcat
+  community.general.pacman:
+    name: lolcat
+    state: present
+
 - name: Install package lazygit
   community.general.pacman:
     name: lazygit
