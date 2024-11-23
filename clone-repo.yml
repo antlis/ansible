@@ -3,6 +3,13 @@
   gather_facts: false
 
   tasks:
+    - name: Clone my-scripts repo
+      git:
+        repo: "git@github.com:antlis/my-scripts.git"
+        dest: "{{ lookup('env', 'HOME') }}/my-script"
+        version: master
+        key_file: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+
     - name: Clone dotfiles repo
       git:
         repo: "git@github.com:antlis/dotfiles.git"
